@@ -32,11 +32,11 @@ Route::post('/messages', function(){
 		'message' => request()->get('message')
 	]);
 
-	event(new MessagePosted($message, $user))->toOthers();
+	event(new MessagePosted($message, $user));
 
 	return ['status'=>'OK'];
 
-})->middleware('auth');
+});
 
 Auth::routes();
 

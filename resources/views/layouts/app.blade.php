@@ -10,8 +10,16 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Styles -->
+    <!-- Styles -->    
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <script src="//localhost:6001/socket.io/socket.io.js"></script>
+    <script>
+        window.Laravel = <?php echo json_encode([
+            'csrfToken' => csrf_token(),
+        ]); ?>
+    </script>
+    
 </head>
 <body>
     <div id="app">
